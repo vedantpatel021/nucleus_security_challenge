@@ -57,11 +57,11 @@ Error (400):
 
 ## What I'd add with more time
 
-- **Keyboard input** — currently buttons only.
-- **History** — last N expressions and results, clickable to restore.
-- **Rate limiting** on the backend (`express-rate-limit`) to prevent trivial DoS.
-- **Stricter expression validation** — a character allow-list on the server before handing to `mathjs`, so truly malformed input is rejected fast.
-- **Tests** — at minimum, a few backend integration tests for the validation paths and a component smoke test.
-- **Deployment config** — Dockerfile, env-var-driven backend URL for the frontend, production build served by Express or a CDN.
-- **Error differentiation in the UI** — show *why* evaluation failed (empty, too long, invalid syntax, non-finite) instead of a generic `NaN`.
-- **Accessibility** — keyboard navigation across buttons, ARIA labels on the display.
+- **Keyboard input** so you can type expressions directly instead of clicking.
+- **History**: last N expressions + results, clickable to restore into the display.
+- **Server-side rate limiting** (`express-rate-limit`) to guard against trivial DoS.
+- **Stricter server-side validation** — a character allow-list before handing to `mathjs`, so malformed input is rejected faster and gives a clearer error.
+- **Differentiated error UI** — show *why* evaluation failed (empty, too long, syntax error, non-finite) instead of a blanket `NaN`.
+- **Tests** — at minimum, backend integration tests for each validation path and a React component smoke test.
+- **Accessibility** — keyboard focus order across buttons and UI theme options.
+- **Scientific functions** — `sqrt`, `^`, trig, constants. `mathjs` supports all of these natively, so it's mostly UI work.
